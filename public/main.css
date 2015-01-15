@@ -1,0 +1,23 @@
+.linkedin-signin {
+  -webkit-appearance: none;
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-image: url(https://developer.linkedin.com/sites/default/files/js-signin.png);
+  background-origin: padding-box;
+  background-position: 0px 0px;
+  background-size: auto;
+  cursor: pointer;
+  display: block;
+  height: 29px;
+  line-height: 16px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -9999px;
+  width: 140px;
+  zoom: 1;
+}
