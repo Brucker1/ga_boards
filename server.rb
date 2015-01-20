@@ -69,7 +69,7 @@ module Bc_boards
         # @date = params["date"], 
         # @text = params["text"]
 
-        $redis.hmset("grand_feed", "id", @id)
+       @grand_feed = $redis.hmset("grand_feed", "id", @id)
         $redis.hgetall("grand_feed")
         redirect to ('/news')
      end
