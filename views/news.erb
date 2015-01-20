@@ -1,1 +1,33 @@
-<h2>Welcome, <%= @name %></h2>
+
+<form method="post" action="/news">
+
+	<label> Name
+		<input type="text" name="author">
+	</label> 
+
+	<label> Update
+		<input type="text" name="text" placeholder="What's an interesting project you're working on?" class="status text"> 
+	</label>
+
+	<label>Links
+		<input type="url" name="link">
+	</label>
+
+	<input type="Submit" value="Update">
+</form>
+
+<div class="feed box">
+<% @grand_feed.each do |id| %> 
+    <div class="entry">
+      <span class="author-text"><%= params["author"] %></span>
+      <span class="link-text"><%= entry["link"] %></span>
+      <span class="text"><%= entry["text"] %></span> 
+      <hr class="before"/>
+      <a href="/entries/<%= entry["id"] %>">
+      </a>
+      <hr class="after"/>
+    </div>
+  <% end %>
+</div>
+
+

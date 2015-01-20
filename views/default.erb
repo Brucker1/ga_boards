@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='utf-8' />
-  <title>GA Boards</title>
-  <link rel="stylesheet" type="text/css" href="main.css" />
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
+<header>
+    <div class="wrapper">
+    <nav>
+      <h1 class="script"><a href='/news'>BC Boards</a></h1>
+      <ul>
+        <li><a href='/messages'>Messages</a></li>
+        <li><a href='/profile'>Profile</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/signout">Sign Out</a></li> 
+      </ul>
+    </nav>
+</header>
 <body>
-  <div class="main">
- <!--    <img src="http://www.wpclipart.com/education/books/diary/diary_brown_T.png" alt=""> -->
-    <%= yield %>
-  </div>
+  <%= yield %>
+  <footer>
+    </p>
+  </footer>
 </body>
 </html>

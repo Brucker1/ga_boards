@@ -1,3 +1,4 @@
+require 'pry'
 module Bc_boards
 	class Server < Sinatra::Base
 
@@ -20,7 +21,7 @@ module Bc_boards
         :redirect_uri  => "http://localhost:9292/linkedin/oauth_callback"
       })
       @linkedin_auth_url = "https://www.linkedin.com/uas/oauth2/authorization?" + query_params
-		  render :erb, :index, :layout => :default
+		  render :erb, :index, :layout => :home
 		end
 
 		get '/linkedin/oauth_callback' do
@@ -55,18 +56,60 @@ module Bc_boards
       redirect to("/news")
 	  end
 
+
+    post '/news' do
+
+        @id = create_entry(
+        params["author"], 
+        params["text"],
+        params["link"]
+      )
+
+        # @author = params["author"], 
+        # @date = params["date"], 
+        # @text = params["text"]
+
+        $redis.hmset("grand_feed", "id", @id)
+        $redis.hgetall("grand_feed")
+        redirect to ('/news')
+     end
+
+
 		get('/new') do
-			render :erb, :new
+			render :erb, :new, :layout => :default
 		end
 
 		get('/signup') do
-			render :erb, :sign_up
+			render :erb, :sign_up, :layout => :default
 		end
 
 		get("/news") do
 			@name = session["name"]
 			render :erb, :news, :layout => :default
 		end
+
+    get('/story') do 
+      render :erb, :story, :layout => :default
+    end 
+
+    get('/messages') do 
+      render :erb, :messages, :layout => :default
+    end
+
+    get('/profile') do 
+      render :erb, :profile, :layout => :default
+    end 
+
+    get('/notifications') do 
+      render :erb, :notifications, :layout => :default
+    end 
+
+    post('/news') do
+     
+      redirect to("/news")
+    end
+    
+
 
 	end
 end
